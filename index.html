@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Balamurali Krishna | SOC Analyst Portfolio</title>
+<meta name="description" content="Balamurali Krishna M — L1 SOC Analyst, Network Engineer, GRC Specialist. IBM Certified Cybersecurity Analyst." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;500;900&family=Cinzel:wght@400;700;900&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══════════ PRELOADER ══════════ -->
+<div class="loader" id="loader">
+  <div class="loader__inner">
+    <div class="loader__glyph">BMK</div>
+    <div class="loader__bar"><span id="loaderFill"></span></div>
+    <div class="loader__meta">
+      <span>INITIALIZING</span>
+      <span id="loaderPct">00</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ AMBIENT LAYERS ══════════ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- ══════════ BLACK FLAME HEM ══════════ -->
+<div class="amaterasu-bed" aria-hidden="true"></div>
+<canvas class="amaterasu" id="amaterasuCanvas" aria-hidden="true"></canvas>
+
+<!-- ══════════ STORM ══════════ -->
+<div class="storm" aria-hidden="true">
+  <div class="storm__flash" id="stormFlash"></div>
+  <svg class="storm__bolt" id="stormBolt" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+    <path id="boltPath" d="" fill="none" stroke="#fff" stroke-width="2"
+          stroke-linejoin="round" stroke-linecap="round"/>
+    <path id="boltGlow" d="" fill="none" stroke="#9fd8ff" stroke-width="9"
+          stroke-linejoin="round" stroke-linecap="round" opacity=".45"/>
+  </svg>
+</div>
+<div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+
+<!-- ══════════ FIXED CHROME ══════════ -->
+<header class="chrome">
+  <a class="chrome__mark" href="#home" aria-label="Back to top">
+    <svg viewBox="0 0 100 100" class="mark" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="50" cy="50" r="24" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"/>
+      <path d="M50 50 L50 4 A46 46 0 0 1 96 50Z" fill="currentColor" opacity=".85"/>
+      <circle cx="50" cy="50" r="5" fill="currentColor"/>
+    </svg>
+    <span>BMK</span>
+  </a>
+  <nav class="chrome__nav">
+    <a href="#about" data-n="01">ABOUT</a>
+    <a href="#skills" data-n="02">SKILLS</a>
+    <a href="#projects" data-n="03">PROJECTS</a>
+    <a href="#certs" data-n="04">CERTS</a>
+    <a href="#contact" data-n="05">CONTACT</a>
+    <button class="chrome__sound" id="soundToggle" type="button"
+            aria-pressed="false" title="Thunder audio">
+      <span>SFX</span>
+      <span class="chrome__sound-state" id="soundState">OFF</span>
+    </button>
+  </nav>
+</header>
+
+<div class="rail rail--left" aria-hidden="true">
+  <span>SOC ANALYST · NETWORK ENGINEER · GRC</span>
+</div>
+<div class="rail rail--right" aria-hidden="true">
+  <span id="railScroll">SCROLL 000%</span>
+</div>
+
+<div class="hint" id="hint">
+  <span class="hint__line"></span>
+  <span class="hint__en">SCROLL TO EXPLORE</span>
+</div>
+
+<main>
+
+<!-- ══════════ ACT I — SCROLL SCRUB ══════════ -->
+<section class="scrub" id="home">
+  <div class="scrub__sticky">
+    <canvas id="mainCanvas"></canvas>
+    <div class="scrub__glow" id="scrubGlow"></div>
+
+    <!-- phase captions -->
+    <div class="phase" data-phase="0">
+      <h2 class="phase__title">SOC<br>ANALYST</h2>
+      <p class="phase__en">LEVEL 1 · SECURITY OPERATIONS</p>
+      <p class="phase__sub">Monitoring, detecting and documenting incidents from first alert to closure.</p>
+    </div>
+    <div class="phase" data-phase="1">
+      <h2 class="phase__title">NETWORK<br>ENGINEER</h2>
+      <p class="phase__en">VLAN · ACLs · PACKET TRACER</p>
+      <p class="phase__sub">Department isolation and secure inter-VLAN routing.</p>
+    </div>
+    <div class="phase" data-phase="2">
+      <h2 class="phase__title">GRC<br>SPECIALIST</h2>
+      <p class="phase__en">NIST SP 800-30 · ISO 27001:2022</p>
+      <p class="phase__sub">Risk registers, control tracking and executive compliance reporting.</p>
+    </div>
+    <div class="phase" data-phase="3">
+      <h2 class="phase__title">IBM<br>CERTIFIED</h2>
+      <p class="phase__en">CYBERSECURITY ANALYST</p>
+      <p class="phase__sub">Professional Certificate covering threat intelligence and incident response.</p>
+    </div>
+
+    <!-- Title lockup, only in the first beat -->
+    <div class="titleblock" id="titleblock">
+      <p class="titleblock__kicker">CYBERSECURITY PORTFOLIO</p>
+      <h1 class="titleblock__name"><span>BALAMURALI</span> <span class="hot">KRISHNA&nbsp;M</span></h1>
+      <p class="titleblock__en">SOC ANALYST &nbsp;·&nbsp; NETWORK ENGINEER &nbsp;·&nbsp; IBM CERTIFIED</p>
+    </div>
+
+    <canvas id="featherCanvas" class="feathers"></canvas>
+  </div>
+</section>
+
+<!-- ══════════ ACT II — MOUSE-TRACKED EYES ══════════ -->
+<section class="eyes" id="eyes">
+  <div class="eyes__sticky">
+    <canvas id="eyeCanvas"></canvas>
+    <div class="eyes__flare" id="eyeFlare"></div>
+    <div class="eyes__frame">
+      <div class="eyes__label eyes__label--tl">THREAT HUNTING</div>
+      <div class="eyes__label eyes__label--tr">INTRUSION DETECTION · LIVE TRACK</div>
+      <div class="eyes__label eyes__label--bl" id="eyeReadout">GAZE LEFT 00.0 / FRAME 00</div>
+    </div>
+    <div class="eyes__copy">
+      <h2>THREAT <span>HUNTING</span></h2>
+      <p>MCA focus: threat hunting and intrusion detection.</p>
+      <p class="eyes__note">THE GAZE FOLLOWS YOUR CURSOR</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section class="jutsu" id="about">
+  <div class="jutsu__reveal" aria-hidden="true"></div>
+  <div class="jutsu__rain" aria-hidden="true"></div>
+  <canvas class="ghost" aria-hidden="true"></canvas>
+
+  <div class="jutsu__inner">
+    <div class="jutsu__head">
+      <span class="eyebrow" data-px="0.10">01 · ABOUT</span>
+      <h2 data-px="0.18">Precision-engineered<br>cybersecurity.</h2>
+      <p data-px="0.26">Precision-engineered cybersecurity professional specialized in L1 SOC operations and network architecture. Currently pursuing an MCA with a focus on threat hunting and intrusion detection.</p>
+      <p data-px="0.30">BCA graduate (GPA 8.37) and MCA candidate. Experienced in technical troubleshooting at Quess Corp (Client: Bangalore) and IT asset management at Novozymes. Dedicated to creating secure, responsive network environments.</p>
+      <div class="jutsu__meta" data-px="0.34">
+        <span><i>MCA</i>S-VYASA UNIVERSITY · 2025 – 2027</span>
+        <span><i>BCA</i>BANGALORE UNIVERSITY · 2022 – 2025</span>
+        <span><i>PUC</i>OM SAI PU COLLEGE · 86%</span>
+      </div>
+      <p class="jutsu__hint" data-px="0.40">MOVE YOUR CURSOR · LIGHT UP THE DARK</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SKILLS ══════════ -->
+<section class="jutsu" id="skills">
+  <div class="jutsu__reveal" aria-hidden="true"></div>
+  <div class="jutsu__rain" aria-hidden="true"></div>
+  <canvas class="ghost" aria-hidden="true"></canvas>
+
+  <div class="jutsu__inner">
+    <div class="jutsu__head">
+      <span class="eyebrow" data-px="0.10">02 · SKILLS</span>
+      <h2 data-px="0.18">Core<br>competencies.</h2>
+    </div>
+
+    <div class="jutsu__grid jutsu__grid--four">
+      <div class="card card--stat">
+        <span class="card__num">01</span>
+        <div class="stat__val">85<small>%</small></div>
+        <h3 class="card__title">Cybersecurity / SOC</h3>
+        <div class="bar" style="--v:.85"><i></i></div>
+      </div>
+      <div class="card card--stat">
+        <span class="card__num">02</span>
+        <div class="stat__val">90<small>%</small></div>
+        <h3 class="card__title">Networking (VLAN / ACLs)</h3>
+        <div class="bar" style="--v:.90"><i></i></div>
+      </div>
+      <div class="card card--stat">
+        <span class="card__num">03</span>
+        <div class="stat__val">80<small>%</small></div>
+        <h3 class="card__title">Wireshark / Splunk</h3>
+        <div class="bar" style="--v:.80"><i></i></div>
+      </div>
+      <div class="card card--stat">
+        <span class="card__num">04</span>
+        <div class="stat__val">75<small>%</small></div>
+        <h3 class="card__title">System Admin (AD)</h3>
+        <div class="bar" style="--v:.75"><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROJECTS ══════════ -->
+<section class="jutsu" id="projects">
+  <div class="jutsu__reveal" aria-hidden="true"></div>
+  <div class="jutsu__rain" aria-hidden="true"></div>
+  <canvas class="ghost" aria-hidden="true"></canvas>
+
+  <div class="jutsu__inner">
+    <div class="jutsu__head">
+      <span class="eyebrow" data-px="0.10">03 · PROJECTS &amp; EXPERIENCE</span>
+      <h2 data-px="0.18">Selected<br>work.</h2>
+    </div>
+
+    <div class="jutsu__grid jutsu__grid--two">
+      <article class="card">
+        <span class="card__num">SOC ANALYSIS</span>
+        <h3 class="card__title">SOC Incident Analysis Lab</h3>
+        <ul class="chips">
+          <li>Security Monitoring</li><li>Incident Response</li><li>Threat Detection</li>
+          <li>Log Analysis</li><li>MITRE ATT&amp;CK Mapping</li>
+        </ul>
+        <p class="card__txt">Simulated attacks in a controlled environment and documented the complete investigation process from alert generation to incident closure.</p>
+        <a class="card__foot" href="https://github.com/Balamuralikrishna2004/SOC-Incident-Analysis-Lab" target="_blank" rel="noopener"><i>GitHub</i> REPOSITORY →</a>
+      </article>
+
+      <article class="card">
+        <span class="card__num">GRC PLATFORM</span>
+        <h3 class="card__title">Enterprise CyberGRC Platform</h3>
+        <p class="card__txt">A full-stack Governance, Risk &amp; Compliance platform built with React to manage cybersecurity risks, compliance, audits, and security posture.</p>
+        <ul class="card__list">
+          <li>Risk Register with NIST SP 800-30 scoring</li>
+          <li>ISO 27001:2022 control tracking</li>
+          <li>Security analytics &amp; risk dashboards</li>
+          <li>Executive compliance reporting</li>
+          <li>Threat intelligence &amp; CVE tracking</li>
+          <li>Audit management &amp; evidence repository</li>
+          <li>Role-Based Access Control</li>
+        </ul>
+        <a class="card__foot" href="https://github.com/Balamuralikrishna2004/CyberGrc" target="_blank" rel="noopener"><i>GitHub</i> REPOSITORY →</a>
+      </article>
+
+      <article class="card">
+        <span class="card__num">NETWORK DESIGN</span>
+        <h3 class="card__title">VLAN &amp; Inter-VLAN</h3>
+        <p class="card__txt">Configured department isolation and secure routing using Cisco Packet Tracer to enhance network security and segmentation.</p>
+      </article>
+
+      <article class="card">
+        <span class="card__num">EXPERIENCE</span>
+        <h3 class="card__title">IT Operations Intern</h3>
+        <p class="card__txt">Worked with Novozymes South Asia on Windows OS configuration, IT asset management, and end-user hardware troubleshooting.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CERTIFICATIONS ══════════ -->
+<section class="jutsu" id="certs">
+  <div class="jutsu__reveal" aria-hidden="true"></div>
+  <div class="jutsu__rain" aria-hidden="true"></div>
+  <canvas class="ghost" aria-hidden="true"></canvas>
+
+  <div class="jutsu__inner">
+    <div class="jutsu__head">
+      <span class="eyebrow" data-px="0.10">04 · CERTIFICATIONS</span>
+      <h2 data-px="0.18">Training &amp;<br>credentials.</h2>
+    </div>
+
+    <div class="jutsu__grid jutsu__grid--two">
+      <article class="card">
+        <span class="card__num">01 · COURSERA</span>
+        <h3 class="card__title">IBM Cybersecurity Analyst</h3>
+        <p class="card__txt">Professional Certificate via Coursera covering threat intelligence and incident response.</p>
+      </article>
+
+      <article class="card">
+        <span class="card__num">02 · ALPHA TECH ACADEMY · 2025</span>
+        <h3 class="card__title">CCNA &amp; MCSA Training</h3>
+        <p class="card__txt">High-performance training in Cisco and Microsoft ecosystems.</p>
+      </article>
+
+      <article class="card">
+        <span class="card__num">03 · CISCO ACADEMY</span>
+        <h3 class="card__title">Cisco Networking Basics</h3>
+        <p class="card__txt">Initial configuration and networking fundamentals via Cisco Academy.</p>
+      </article>
+
+      <article class="card">
+        <span class="card__num">04 · IN PROGRESS</span>
+        <h3 class="card__title">CompTIA Security+ (SY0-701)</h3>
+        <p class="card__txt">Currently preparing for the industry-recognized Security+ certification, focusing on security operations, risk management, threat detection, incident response, and governance.</p>
+      </article>
+
+      <article class="card">
+        <span class="card__num">05 · ISC2</span>
+        <h3 class="card__title">Certified in Cybersecurity (CC) Candidate</h3>
+        <p class="card__txt">Completed the ISC2 Certified in Cybersecurity (CC) training program, developing foundational knowledge in security operations, access control, risk management, security principles, and network security concepts.</p>
+        <a class="card__foot" href="https://www.linkedin.com/posts/balamurali-krishna-m-377579267_isc2-isc2cc-cybersecurity-activity-7441156962626699265-DXWC" target="_blank" rel="noopener"><i>LinkedIn</i> TRAINING COMPLETION POST →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section class="jutsu jutsu--last" id="contact">
+  <div class="jutsu__reveal" aria-hidden="true"></div>
+  <div class="jutsu__rain" aria-hidden="true"></div>
+  <canvas class="ghost" aria-hidden="true"></canvas>
+
+  <div class="jutsu__inner">
+    <div class="jutsu__head">
+      <span class="eyebrow" data-px="0.10">05 · CONTACT</span>
+      <h2 data-px="0.18">Send a<br>signal.</h2>
+    </div>
+
+    <div class="jutsu__grid jutsu__grid--three">
+      <a class="card card--link" href="mailto:balamuralikrishna2004@gmail.com">
+        <span class="card__num">01</span>
+        <h3 class="card__title">Email</h3>
+        <p class="card__txt card__txt--break">balamuralikrishna2004@gmail.com</p>
+        <span class="card__foot"><i>SEND</i> SIGNAL →</span>
+      </a>
+      <a class="card card--link" href="https://www.linkedin.com/in/balamurali-krishna-m-377579267/" target="_blank" rel="noopener">
+        <span class="card__num">02</span>
+        <h3 class="card__title">LinkedIn</h3>
+        <p class="card__txt card__txt--break">balamurali-krishna-m</p>
+        <span class="card__foot"><i>OPEN</i> PROFILE →</span>
+      </a>
+      <a class="card card--link" href="https://github.com/Balamuralikrishna2004" target="_blank" rel="noopener">
+        <span class="card__num">03</span>
+        <h3 class="card__title">GitHub</h3>
+        <p class="card__txt card__txt--break">Balamuralikrishna2004</p>
+        <span class="card__foot"><i>OPEN</i> REPOSITORIES →</span>
+      </a>
+    </div>
+
+    <div class="jutsu__foot" data-px="0.14">
+      <span>BALAMURALI KRISHNA M</span>
+      <span>© 2026 BALAMURALI KRISHNA.M</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════ STICKY BADGE ══════════ -->
+<div class="sticky-badge" id="stickyBadge">
+  <span class="sticky-badge__title">SOC · L1</span>
+  <span class="sticky-badge__en">CYBERSECURITY</span>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
