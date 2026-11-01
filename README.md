@@ -6,7 +6,7 @@ A responsive, cinematic portfolio for Balamurali Krishna M, showcasing cybersecu
 
 After GitHub Pages is enabled, the portfolio will be available at:
 
-<https://balamuralikrishna2004.github.io/portfolio/>
+<https://balamuralikrishna2004.github.io/Balamuralikrishna2004/>
 
 ## Run locally
 
